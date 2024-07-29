@@ -5,17 +5,17 @@ import {
   SupportedNetworks,
 } from "@cometh/connect-sdk";
 
-const apiKey = "aig3ev1N2SW8EnF4wwRSUSu4CLs9DPLG"; // Replace with your actual API key
+const apiKey = process.env.COMETH_API_KEY; // Replace with your actual API key
 const rpcUrl = "https://sepolia-rollup.arbitrum.io/rpc"; // Updated RPC URL
 
 const walletAdaptor = new ConnectAdaptor({
   chainId: SupportedNetworks.ARBITRUM_SEPOLIA,
-  apiKey: apiKey,
+  apiKey: apiKey || "",
 });
 
 const wallet = new ComethWallet({
   authAdapter: walletAdaptor,
-  apiKey: apiKey,
+  apiKey: apiKey || "",
   rpcUrl: rpcUrl,
 });
 
